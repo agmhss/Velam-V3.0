@@ -10,7 +10,7 @@
 const APP_CONFIG = {
     fullName: "GHSS VELAMURITHANPETTAI", 
     shortName: "GHSS VMPT",                                           
-    scriptUrl: "https://script.google.com/macros/s/AKfycbxhbfj-RiHOmidh0opQmct7W1x-HPXvV0szc1x5QcdbeNZ3BZYx_YvPqRqyrYmI7BzA/exec" 
+    scriptUrl: "https://script.google.com/macros/s/AKfycbyvAwxIAjtSB5AysA1Z7E0AC1ImJFv_HGJIObs_zY5k7Lt9aNgNastU1UCuCNlZrBQQ7w/exec" 
 };
 const SCRIPT_URL = APP_CONFIG.scriptUrl;
 
