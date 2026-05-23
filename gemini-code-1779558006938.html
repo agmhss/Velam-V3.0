@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGMHSS Smart Engine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    <style>
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        .gradient-bg { background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%); }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans text-gray-900">
+
+    <nav class="gradient-bg p-6 shadow-xl text-white">
+        <div class="container mx-auto flex justify-between items-center">
+            <div>
+                <h1 id="schoolNameDisplay" class="text-2xl md:text-4xl font-black tracking-tight uppercase">GHSS VMPT</h1>
+                <p class="text-blue-100 text-sm font-medium">Smart Timetable & Duty Engine</p>
+            </div>
+            <div id="statusIndicator" class="bg-blue-900/50 px-4 py-1.5 rounded-full border border-blue-400 text-xs font-bold tracking-widest">SYSTEM READY</div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-8">
+        
+        <section class="glass rounded-2xl p-6 mb-8 shadow-lg border border-gray-200">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div>
+                    <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Mode</label>
+                    <select id="opMode" class="w-full p-3 bg-gray-50 border-2 border-gray-200 rounded-xl font-bold focus:border-blue-500 outline-none">
+                        <option value="regular">Regular Timetable</option>
+                        <option value="exam">Exam Duty Mode</option>
+                        <option value="substitution">Substitution Manager</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Calc Mode</label>
+                    <select id="calcMode" class="w-full p-3 bg-indigo-50 border-2 border-indigo-100 rounded-xl font-bold text-indigo-800 outline-none">
+                        <option value="hybrid">Smart (Auto + Sheet)</option>
+                        <option value="auto">Strict Auto (Rules)</option>
+                        <option value="allotted">Strict Allotted</option>
+                    </select>
+                </div>
+
+                <div id="examPatternGroup" class="hidden">
+                    <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Pattern</label>
+                    <select id="patternSelect" class="w-full p-3 bg-gray-50 border-2 border-gray-200 rounded-xl outline-none">
+                        <option>Full School (1 to 12)</option>
+                        <option>High & Hr.Sec Only (6 to 12)</option>
+                    </select>
+                </div>
+
+                <div class="flex items-end">
+                    <button onclick="generateGrid()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-black p-3 rounded-xl shadow-lg flex items-center justify-center gap-2 transition-all">
+                        <i data-lucide="refresh-cw" class="w-5 h-5"></i> PROCESS
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <div class="grid grid-cols-1 lg:col-span-1 gap-8">
+            <section class="glass rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
+                <div class="p-6 border-b border-gray-100 flex flex-wrap justify-between items-center gap-4">
+                    <h2 class="font-black text-xl text-blue-900">Smart Viewer</h2>
+                    <div class="flex gap-2">
+                        <select id="viewType" class="bg-gray-100 p-2 rounded-lg text-sm font-bold"><option value="all">All</option><option value="class">By Class</option><option value="teacher">By Teacher</option></select>
+                        <select id="viewFilter" class="bg-gray-100 p-2 rounded-lg text-sm font-bold hidden"></select>
+                        <button onclick="syncFromCloud()" class="bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-1"><i data-lucide="cloud" class="w-4 h-4"></i> Sync</button>
+                        <button onclick="exportPDF()" class="bg-gray-800 text-white px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-1"><i data-lucide="download" class="w-4 h-4"></i> PDF</button>
+                    </div>
+                </div>
+                <div id="mainGrid" class="p-6 min-h-[400px]">
+                    <div class="text-center py-20 text-gray-400 font-bold"><i data-lucide="layout-grid" class="w-16 h-16 mx-auto mb-4 opacity-20"></i> Select options and Process to view matrix</div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
