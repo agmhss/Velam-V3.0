@@ -62,8 +62,19 @@
                 <div id="examPatternGroup" class="hidden">
                     <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Pattern</label>
                     <select id="patternSelect" class="w-full p-3 bg-gray-50 border-2 border-gray-200 rounded-xl outline-none">
-                        <option>Full School (1 to 12)</option>
-                        <option>High & Hr.Sec Only (6 to 12)</option>
+                        <option value="Full School (1 to 12)">Full School (1-12)</option>
+                        <option value="High & Hr.Sec Only (6 to 12)">High & Hr.Sec (6-12)</option>
+                    </select>
+                </div>
+
+                <div id="substituteGroup" class="hidden">
+                    <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Day of Substitution</label>
+                    <select id="subDay" class="w-full p-3 bg-gray-50 border-2 border-gray-200 rounded-xl outline-none">
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
                     </select>
                 </div>
 
@@ -72,6 +83,12 @@
                         <i data-lucide="refresh-cw" class="w-5 h-5"></i> PROCESS
                     </button>
                 </div>
+            </div>
+
+            <div id="dailyToolsGroup" class="hidden mt-6 pt-6 border-t border-gray-200">
+                <label class="block text-xs font-bold text-gray-500 uppercase mb-3">Absent Teachers / Date</label>
+                <div class="flex flex-wrap gap-3" id="absentTeachersList"></div>
+                <input type="date" id="workDate" class="mt-4 p-2 border rounded text-sm font-bold text-gray-700">
             </div>
         </section>
 
@@ -88,10 +105,9 @@
                     <button onclick="syncFromCloud()" class="bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-1">
                         <i data-lucide="cloud" class="w-4 h-4"></i> Sync
                     </button>
-                    <button onclick="saveDutiesToCloud()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 text-sm rounded shadow font-bold flex items-center gap-2">
-    <i data-lucide="save" class="w-4 h-4"></i> Save Counts
-</button>
-
+                    <button onclick="saveDutiesToCloud()" class="bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-1">
+                        <i data-lucide="save" class="w-4 h-4"></i> Save Counts
+                    </button>
                     <button onclick="exportPDF()" class="bg-gray-800 text-white px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-1">
                         <i data-lucide="download" class="w-4 h-4"></i> PDF
                     </button>
@@ -109,7 +125,6 @@
     <script src="config.js"></script>
     <script src="app.js"></script>
     <script>
-        // Initialize Icons
         lucide.createIcons();
     </script>
 </body>
