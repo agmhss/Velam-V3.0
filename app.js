@@ -3,11 +3,12 @@
  * Version: Ultimate Failproof Build (Strict Mode Only)
  */
 
-const APP_CONFIG = {
+                                   
+    // 🚨 இங்கே உங்களின் சரியான Google Script URL இருப்பதை உறுதிசெய்யவும்! 🚨
+    const APP_CONFIG = {
     fullName: "GHSS VELAMURITHANPETTAI", 
     shortName: "GHSS VMPT",                                           
-    // 🚨 இங்கே உங்களின் சரியான Google Script URL இருப்பதை உறுதிசெய்யவும்! 🚨
-    scriptUrl: "https://script.google.com/macros/s/AKfycbyvAwxIAjtSB5AysA1Z7E0AC1ImJFv_HGJIObs_zY5k7Lt9aNgNastU1UCuCNlZrBQQ7w/exec" 
+    scriptUrl: "https://script.google.com/macros/s/AKfycbwhoxfOTBzWYD7hJyFP2mI8-cfJS77npL4SyAd6N1Ps2RUw29oIHffGejX_hkAjxmWW4g/exec" 
 };
 const SCRIPT_URL = APP_CONFIG.scriptUrl;
 
