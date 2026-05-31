@@ -4,9 +4,9 @@
  */
 
 const APP_CONFIG = {
-    fullName: "ORIENTAL GAHSS", 
-    shortName: "ORIENTAL GAHSS",                                           
-    scriptUrl: "https://script.google.com/macros/s/AKfycby5AWmV6uxA09viH5ooofU7pI7Tc3gwjTECenaqoI1u9qD-RqNYWQBcNbSuk0hpb0ORJg/exec" 
+    fullName: "GHSS VELAM", 
+    shortName: "GHSS VELAM",                                           
+    scriptUrl: "https://script.google.com/macros/s/AKfycby7TesrY8cpaoxbXA6KDvUhgZs54DRM55uhyO4RHn-UZF78nSrBM_uhVAOkNtIWALMEcg/exec" 
 };
 const SCRIPT_URL = APP_CONFIG.scriptUrl;
 
